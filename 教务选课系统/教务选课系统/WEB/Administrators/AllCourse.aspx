@@ -46,7 +46,6 @@
         <div>
             &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
             &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-            <asp:Button ID="Button5" runat="server" Text="查看本学期课程表" />
-        </div>
+            </div>
         </div>
 </asp:Content>
