@@ -9,7 +9,8 @@
                 &nbsp年份：<asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
                 &nbsp&nbsp
                 学期：
-                <asp:DropDownList ID="DropDownList1" runat="server"></asp:DropDownList>
+                <asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="termmessage" DataTextField="termname" DataValueField="termname"></asp:DropDownList>
+                <asp:SqlDataSource ID="termmessage" runat="server" ConnectionString="<%$ ConnectionStrings:UniversityManageSystemConnectionString %>" SelectCommand="SELECT [termname] FROM [termmessage]"></asp:SqlDataSource>
                 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
                 <asp:Button ID="Button1" runat="server" Text="确定" />
             </div>
