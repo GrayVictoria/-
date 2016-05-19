@@ -17,6 +17,8 @@
         </div>
         <div>
 
+            <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Administrators/AllCourse.aspx">返回</asp:HyperLink>
+
         </div>
     </div>
 </asp:Content>

@@ -13,5 +13,10 @@ namespace 教务选课系统.WEB.Administrators
         {
 
         }
+
+        protected void Button5_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

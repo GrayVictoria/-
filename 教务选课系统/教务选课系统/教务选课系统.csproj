@@ -243,12 +243,14 @@
     <Content Include="WEB\Administrators\AllCourse.aspx" />
     <Content Include="WEB\Administrators\CourseDetail.aspx" />
     <Content Include="WEB\Administrators\Setting.aspx" />
+    <Content Include="WEB\Administrators\StudentSheet.aspx" />
     <Content Include="WEB\Student\AllCourse.aspx" />
     <Content Include="WEB\Student\CourseDetail.aspx" />
     <Content Include="WEB\Student\CurriculumSchedule.aspx" />
     <Content Include="WEB\Teacher\AllCourse.aspx" />
     <Content Include="WEB\Teacher\CourseDetail.aspx" />
     <Content Include="WEB\Teacher\CurriculumSchedule.aspx" />
+    <Content Include="WEB\Teacher\StudentSheet.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Administrators.Master.cs">
@@ -259,16 +261,25 @@
       <DependentUpon>Administrators.Master</DependentUpon>
     </Compile>
     <Compile Include="BLL\B_Administrators.cs" />
+    <Compile Include="BLL\B_CourseDetail.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="BLL\B_Student.cs" />
     <Compile Include="BLL\B_Teacher.cs" />
+    <Compile Include="DAL\DatabaseHelper.cs" />
     <Compile Include="DAL\D_Administrators.cs" />
+    <Compile Include="DAL\D_Basic.cs" />
     <Compile Include="DAL\D_Course.cs" />
+    <Compile Include="DAL\D_CourseDetail.cs" />
     <Compile Include="DAL\D_Student.cs" />
     <Compile Include="MODEL\M_Administrators.cs" />
     <Compile Include="MODEL\M_ChooseCourse.cs" />
     <Compile Include="MODEL\M_Course.cs" />
+    <Compile Include="MODEL\M_CourseDetail.cs" />
+    <Compile Include="MODEL\M_major.cs" />
     <Compile Include="MODEL\M_Student.cs" />
     <Compile Include="MODEL\M_Teacher.cs" />
+    <Compile Include="MODEL\M_value.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Student.Master.cs">
       <DependentUpon>Student.Master</DependentUpon>
@@ -304,6 +315,13 @@
     </Compile>
     <Compile Include="WEB\Administrators\Setting.aspx.designer.cs">
       <DependentUpon>Setting.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WEB\Administrators\StudentSheet.aspx.cs">
+      <DependentUpon>StudentSheet.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WEB\Administrators\StudentSheet.aspx.designer.cs">
+      <DependentUpon>StudentSheet.aspx</DependentUpon>
     </Compile>
     <Compile Include="WEB\Student\AllCourse.aspx.cs">
       <DependentUpon>AllCourse.aspx</DependentUpon>
@@ -346,6 +364,13 @@
     </Compile>
     <Compile Include="WEB\Teacher\CurriculumSchedule.aspx.designer.cs">
       <DependentUpon>CurriculumSchedule.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WEB\Teacher\StudentSheet.aspx.cs">
+      <DependentUpon>StudentSheet.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WEB\Teacher\StudentSheet.aspx.designer.cs">
+      <DependentUpon>StudentSheet.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
