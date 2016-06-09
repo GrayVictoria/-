@@ -132,6 +132,8 @@
     <Content Include="images\preview\8.png" />
     <Content Include="images\preview\9.png" />
     <Content Include="images\tumblr_mopqkkwK2M1st5lhmo1_1280.jpg" />
+    <Content Include="index.html" />
+    <Content Include="index2.html" />
     <Content Include="lib\bootstrap\css\bootstrap-theme.css" />
     <Content Include="lib\bootstrap\css\bootstrap-theme.min.css" />
     <Content Include="lib\bootstrap\css\bootstrap.css" />
@@ -235,6 +237,7 @@
     <Content Include="lib\jquery.isotope.min.js" />
     <Content Include="lib\jquery.masonry.min.js" />
     <Content Include="lib\jquery.peity.min.js" />
+    <Content Include="sign-in.html" />
     <Content Include="stylesheets\elements.css" />
     <Content Include="stylesheets\isotope.css" />
     <Content Include="stylesheets\premium.css" />
@@ -251,6 +254,7 @@
     <Content Include="WEB\Teacher\CourseDetail.aspx" />
     <Content Include="WEB\Teacher\CurriculumSchedule.aspx" />
     <Content Include="WEB\Teacher\StudentSheet.aspx" />
+    <Content Include="Welcome.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Administrators.Master.cs">
@@ -264,18 +268,18 @@
     <Compile Include="BLL\B_CourseDetail.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="BLL\B_Login.cs" />
     <Compile Include="BLL\B_Student.cs" />
     <Compile Include="BLL\B_Teacher.cs" />
     <Compile Include="DAL\DatabaseHelper.cs" />
-    <Compile Include="DAL\D_Administrators.cs" />
-    <Compile Include="DAL\D_Basic.cs" />
     <Compile Include="DAL\D_Course.cs" />
     <Compile Include="DAL\D_CourseDetail.cs" />
-    <Compile Include="DAL\D_Student.cs" />
+    <Compile Include="DAL\D_Login.cs" />
     <Compile Include="MODEL\M_Administrators.cs" />
     <Compile Include="MODEL\M_ChooseCourse.cs" />
     <Compile Include="MODEL\M_Course.cs" />
     <Compile Include="MODEL\M_CourseDetail.cs" />
+    <Compile Include="MODEL\M_Login.cs" />
     <Compile Include="MODEL\M_major.cs" />
     <Compile Include="MODEL\M_Student.cs" />
     <Compile Include="MODEL\M_Teacher.cs" />
@@ -371,6 +375,13 @@
     </Compile>
     <Compile Include="WEB\Teacher\StudentSheet.aspx.designer.cs">
       <DependentUpon>StudentSheet.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Welcome.aspx.cs">
+      <DependentUpon>Welcome.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Welcome.aspx.designer.cs">
+      <DependentUpon>Welcome.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

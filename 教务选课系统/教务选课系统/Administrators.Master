@@ -9,13 +9,175 @@
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
-<body>
-    <form id="form1" runat="server">
+    
+
+    <%--<body class=" theme-blue">
+
+        <form id="form1" runat="server">
     <div>
         <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
         
         </asp:ContentPlaceHolder>
     </div>
     </form>
+    </body>--%>
+    <body class="theme-blue">
+        <form id="form2" runat="server">
+    
+    </form>
+        
+    <!-- Demo page code -->
+
+    <script type="text/javascript">
+        $(function () {
+            var match = document.cookie.match(new RegExp('color=([^;]+)'));
+            if (match) var color = match[1];
+            if (color) {
+                $('body').removeClass(function (index, css) {
+                    return (css.match(/\btheme-\S+/g) || []).join(' ')
+                })
+                $('body').addClass('theme-' + color);
+            }
+
+            $('[data-popover="true"]').popover({ html: true });
+
+        });
+    </script>
+    <style type="text/css">
+        #line-chart {
+            height:300px;
+            width:800px;
+            margin: 0px auto;
+            margin-top: 1em;
+        }
+        .navbar-default .navbar-brand, .navbar-default .navbar-brand:hover { 
+            color: #fff;
+        }
+    </style>
+
+    <script type="text/javascript">
+        $(function () {
+            var uls = $('.sidebar-nav > ul > *').clone();
+            uls.addClass('visible-xs');
+            $('#main-menu').append(uls.clone());
+        });
+    </script>
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="../assets/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
+  
+
+  <!--[if lt IE 7 ]> <body class="ie ie6"> <![endif]-->
+  <!--[if IE 7 ]> <body class="ie ie7 "> <![endif]-->
+  <!--[if IE 8 ]> <body class="ie ie8 "> <![endif]-->
+  <!--[if IE 9 ]> <body class="ie ie9 "> <![endif]-->
+  <!--[if (gt IE 9)|!(IE)]><!--> 
+   
+  <!--<![endif]-->
+
+    <div class="navbar navbar-default" role="navigation">
+        
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="" href="index.html"><span class="navbar-brand"><span class="fa fa-paper-plane"></span>&nbsp&nbsp&nbsp高校教务管理系统</span></a></div>
+
+        <div class="navbar-collapse collapse" style="height: 1px;">
+          <ul id="main-menu" class="nav navbar-nav navbar-right">
+            <li class="dropdown hidden-xs">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    <span class="glyphicon glyphicon-user padding-right-small" style="position:relative;top: 3px;"></span> XXX同学
+                    <i class="fa fa-caret-down"></i>
+                </a>
+
+              <ul class="dropdown-menu">
+               
+                <li><a tabindex="-1" href="sign-in.html">退出</a></li>
+              </ul>
+            </li>
+          </ul>
+
+        </div>
+      </div>
+
+    
+        
+    <div class="sidebar-nav">
+    <ul>
+    <li><a href="#" data-target=".grade-menu" class="nav-header" data-toggle="collapse"><i class="fa fa-fw fa-dashboard"></i> 成绩管理<i class="fa fa-collapse"></i></a></li>
+    <li><ul class="grade-menu nav nav-list collapse">
+            <li><a href="index.html"><span class="fa fa-caret-right"></span> 课程评价</a></li>
+            <li ><a href="index.html"><span class="fa fa-caret-right"></span> 成绩查询</a></li>
+            <li ><a href="index.html"><span class="fa fa-caret-right"></span> 成绩汇总</a></li>
+    </ul></li>
+
+    <li><a href="#" data-target=".arrange-menu" class="nav-header" data-toggle="collapse"><i class="fa fa-fw fa-dashboard"></i> 课表管理<i class="fa fa-collapse"></i></a></li>
+    <li><ul class="arrange-menu nav nav-list collapse">
+            <li><a href="index.html"><span class="fa fa-caret-right"></span> 查看课表</a></li>
+    </ul></li>
+
+    <li><a href="#" data-target=".select-menu" class="nav-header" data-toggle="collapse"><i class="fa fa-fw fa-dashboard"></i> 选课管理<i class="fa fa-collapse"></i></a></li>
+    <li><ul class="select-menu nav nav-list collapse">
+            <li><a href="index.html"><span class="fa fa-caret-right"></span> 查看可选课程</a></li>
+            <li ><a href="index.html"><span class="fa fa-caret-right"></span> 查看课程详情</a></li>
+            <li ><a href="index.html"><span class="fa fa-caret-right"></span> 退选课</a></li>
+            <li ><a href="index.html"><span class="fa fa-caret-right"></span> 查看课表</a></li>
+    </ul></li>
+
+    <li><a href="#" data-target=".design-menu" class="nav-header" data-toggle="collapse"><i class="fa fa-fw fa-dashboard"></i> 毕业设计管理<i class="fa fa-collapse"></i></a></li>
+    <li><ul class="design-menu nav nav-list collapse">
+            <li><a href="index.html"><span class="fa fa-caret-right"></span> 查看选题</a></li>
+            <li ><a href="index.html"><span class="fa fa-caret-right"></span> 确定选题</a></li>
+            <li ><a href="index.html"><span class="fa fa-caret-right"></span> 上传文档</a></li>
+            <li ><a href="index.html"><span class="fa fa-caret-right"></span> 查看分数</a></li>
+    </ul></li>
+
+
+    
+
+
+            </ul>
+    </div>
+
+    <div class="content">
+        
+</div>
+
+
+            <footer>
+                <hr>
+
+                <!-- Purchase a site license to remove this link from the footer: http://www.portnine.com/bootstrap-themes -->
+                <p class="pull-right">A <a href="http://www.portnine.com/bootstrap-themes" target="_blank">Free Bootstrap Theme</a> by <a href="http://www.portnine.com" target="_blank">Portnine</a></p>
+                <p>© 2014 <a href="http://www.portnine.com" target="_blank">Portnine</a></p>
+            </footer>
+        </div>
+    </div>
+
+
+    <script src="lib/bootstrap/js/bootstrap.js"></script>
+    <script type="text/javascript">
+        $("[rel=tooltip]").tooltip();
+        $(function () {
+            $('.demo-cancel-click').click(function () { return false; });
+        });
+    </script>
+
+
+
+
 </body>
 </html>

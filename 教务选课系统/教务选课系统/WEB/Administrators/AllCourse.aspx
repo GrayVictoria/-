@@ -10,20 +10,27 @@
     <div>
         &nbsp&nbsp 课程学期： <%--第一学期，第二学期，第三学期--%>
     <asp:DropDownList ID="DropDownList1" runat="server">
+        <asp:ListItem></asp:ListItem>
+        <asp:ListItem>1</asp:ListItem>
+        <asp:ListItem>2</asp:ListItem>
+        <asp:ListItem>3</asp:ListItem>
     </asp:DropDownList>
+        <asp:ObjectDataSource ID="ObjectDataSource2" runat="server" SelectMethod="searchvalue" TypeName="教务选课系统.BLL.B_CourseDetail"></asp:ObjectDataSource>
         &nbsp&nbsp 对应专业： <%-- 8个专业--%>
-    <asp:DropDownList ID="DropDownList2" runat="server">
+    <asp:DropDownList ID="DropDownList2" runat="server" OnDataBound="DropDownList2_DataBound" DataSourceID="ObjectDataSource3" DataTextField="mname" DataValueField="mname">
     </asp:DropDownList>
+        <asp:ObjectDataSource ID="ObjectDataSource3" runat="server" SelectMethod="searchmajor" TypeName="教务选课系统.BLL.B_CourseDetail"></asp:ObjectDataSource>
         &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
         &nbsp&nbsp 课程编号：&nbsp
         <asp:TextBox ID="TextBox1" runat="server" Width="94px"></asp:TextBox>
-        &nbsp&nbsp<asp:Button ID="Button4" runat="server" Text="确定" />
+        &nbsp&nbsp<asp:Button ID="Button4" runat="server" Text="确定" OnClick="Button4_Click" />
     <div>
         <div>
             <div>
 
                 <asp:GridView ID="课程表" runat="server" Width="100%" AutoGenerateColumns="False"  DataSourceID="ObjectDataSource1">
                     <Columns>
+                        <asp:BoundField DataField="id" HeaderText="课程序列号" SortExpression="id" Visible="False" />
                         <asp:BoundField DataField="cnum" HeaderText="课程编号" SortExpression="cnum" />
                         <asp:BoundField DataField="cname" HeaderText="课程名称" SortExpression="cname" />
                         <asp:BoundField DataField="cmajor.mname" HeaderText="开设学院" SortExpression="cmajor" />
@@ -36,12 +43,18 @@
                         <asp:TemplateField HeaderText="开设学院"></asp:TemplateField>
                         <asp:TemplateField HeaderText="教师"></asp:TemplateField>
                         <asp:TemplateField HeaderText="学分"></asp:TemplateField>--%>
-                        <asp:HyperLinkField DataNavigateUrlFields="cnum" DataNavigateUrlFormatString="~/WEB/Administrators/CourseDetail.aspx?cnum={0}" HeaderText="详情" Text="详情" />
-                        <asp:HyperLinkField DataNavigateUrlFields="cnum" DataNavigateUrlFormatString="~/WEB/Administrators/StudentSheet.aspx?cnum={0}" HeaderText="选课名单" Text="选课名单" />
+                        <asp:HyperLinkField DataNavigateUrlFields="id" DataNavigateUrlFormatString="~/WEB/Administrators/CourseDetail.aspx?id={0}" HeaderText="详情" Text="详情" />
+                        <asp:HyperLinkField DataNavigateUrlFields="id" DataNavigateUrlFormatString="~/WEB/Administrators/StudentSheet.aspx?id={0}" HeaderText="选课名单" Text="选课名单" />
                     </Columns>
                 </asp:GridView>
 
-                <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" SelectMethod="GetAllCourse" TypeName="教务选课系统.BLL.B_CourseDetail"></asp:ObjectDataSource>
+                <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" SelectMethod="GetAllCourseAdministrators" TypeName="教务选课系统.BLL.B_CourseDetail">
+                    <SelectParameters>
+                        <asp:ControlParameter ControlID="DropDownList1" Name="term" PropertyName="SelectedValue" Type="String" />
+                        <asp:ControlParameter ControlID="DropDownList2" Name="major" PropertyName="SelectedValue" Type="String" />
+                        <asp:ControlParameter ControlID="TextBox1" Name="cnum" PropertyName="Text" Type="String" />
+                    </SelectParameters>
+                </asp:ObjectDataSource>
 
             </div>
         </div>

@@ -13,5 +13,20 @@ namespace 教务选课系统.WEB.Teacher
         {
 
         }
+
+        protected void DropDownList2_DataBound(object sender, EventArgs e)
+        {
+            DropDownList2.Items.Insert(0, new ListItem("", ""));
+        }
+
+        protected void Button4_Click(object sender, EventArgs e)
+        {
+            课程表.DataBind();
+        }
+
+        protected void Button5_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("CurriculumSchedule.aspx");
+        }
     }
 }

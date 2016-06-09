@@ -13,5 +13,10 @@ namespace 教务选课系统.WEB.Teacher
         {
 
         }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("AllCourse.aspx");
+        }
     }
 }

@@ -21,12 +21,12 @@
             </asp:DetailsView>
             <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" SelectMethod="search" TypeName="教务选课系统.BLL.B_CourseDetail">
                 <SelectParameters>
-                    <asp:QueryStringParameter Name="id" QueryStringField="cnum" Type="String" />
+                    <asp:QueryStringParameter Name="id" QueryStringField="id" Type="String" />
                 </SelectParameters>
             </asp:ObjectDataSource>
         </div>
-        <%--  <div>
-            <asp:Button ID="Button1" runat="server" Text="返回" />
-        </div>--%>
+          <div>
+            <asp:Button ID="Button1" runat="server" Text="返回" OnClick="Button1_Click" />
+        </div>
     </div>
 </asp:Content>

@@ -5,19 +5,19 @@
     <div>
         <div>
             <div>
-                时间设置----
+                设置新学期----
                 &nbsp年份：<asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
                 &nbsp&nbsp
                 学期：
                 <asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="termmessage" DataTextField="termname" DataValueField="termname"></asp:DropDownList>
                 <asp:SqlDataSource ID="termmessage" runat="server" ConnectionString="<%$ ConnectionStrings:UniversityManageSystemConnectionString %>" SelectCommand="SELECT [termname] FROM [termmessage]"></asp:SqlDataSource>
                 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                <asp:Button ID="Button1" runat="server" Text="确定" />
+                <asp:Button ID="Button1" runat="server" Text="确定" OnClick="Button1_Click" />
             </div>
         </div>
         <div>
 
-            <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Administrators/AllCourse.aspx">返回</asp:HyperLink>
+            <asp:Button ID="Button2" runat="server" Text="返回" OnClick="Button2_Click" />
 
         </div>
     </div>

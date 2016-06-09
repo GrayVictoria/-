@@ -16,14 +16,15 @@
                     <asp:BoundField DataField="cvalue.value" HeaderText="课程性质" SortExpression="cvalue" />
                     <asp:BoundField DataField="ccredit" HeaderText="学分" SortExpression="ccredit" />
                     <asp:BoundField DataField="cintroduction" HeaderText="课程简介" SortExpression="cintroduction" />
-                    <asp:BoundField DataField="cyear" HeaderText="开课学期" SortExpression="cyear" />
+                    <asp:BoundField DataField="cyear" HeaderText="开课学年" SortExpression="cyear" />
                 </Fields>
             </asp:DetailsView>
             <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" SelectMethod="search" TypeName="教务选课系统.BLL.B_CourseDetail">
                 <SelectParameters>
-                    <asp:QueryStringParameter Name="id" QueryStringField="cnum" Type="String" />
+                    <asp:QueryStringParameter Name="id" QueryStringField="id" Type="String" />
                 </SelectParameters>
             </asp:ObjectDataSource>
+            <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="返回" />
         </div>
         <%--  <div>
             <asp:Button ID="Button1" runat="server" Text="返回" />

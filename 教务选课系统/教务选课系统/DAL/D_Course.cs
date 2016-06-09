@@ -12,6 +12,34 @@ namespace 教务选课系统.DAL
     {
         DatabaseHelper db = new DatabaseHelper();
 
+        public int SetTerm(string year,string term)
+        {
+            string sql = "use UniversityManageSystem select id from dbo.termmessage where termname='"+term+"'";
+            SqlDataReader dr = db.GetRead(sql, null);
+            while (dr.Read())
+                term = dr["id"].ToString();
+            dr.Close();
+            sql="select * from sysobjects where name='"+year+"-"+term+"'";
+            dr = db.GetRead(sql, null);
+            while (dr.Read())
+                if (dr["name"].ToString() != null)
+                {
+                    dr.Close();
+                    return 0; //have the table
+                }
+            dr.Close();
+            sql = "use UniversityManageSystem if exists(select * from sysobjects where name='"+year+"-"+term+"') drop table ["+year+"-"+term+"] create table ["+year+"-"+term+"] ( id int identity (1,1)  primary key, cid int not null, snum nvarchar(50) not null, score real null )";
+            try
+            {
+                db.ExeCommand(sql, null);
+                return 2; //successful
+            }
+            catch
+            {
+                return 1; //fail to create the table
+            }
+        }
+
         public List<M_ChooseCourse> GetChooseMessage(int year, int term, int cid)
         {
             string sql = "select  dbo.stu.snum,dbo.stu.sname,dbo.stu.sclass from dbo.stu inner join [" + year + "-" + term + "] on [" + year + "-" + term + "].snum=stu.snum where [" + year + "-" + term + "].cid='" + cid + "' ";
